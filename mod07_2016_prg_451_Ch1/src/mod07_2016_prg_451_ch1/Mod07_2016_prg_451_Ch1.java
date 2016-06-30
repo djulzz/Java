@@ -1,21 +1,16 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+Author: William Cherry
+Date: 6/29/2016
+Title: First program
+*/
 package mod07_2016_prg_451_ch1;
 
-/**
- *
- * @author djulzz
- */
 public class Mod07_2016_prg_451_Ch1 {
 
-    /**
-     * @param args the command line arguments
-     */
+
     public static void main(String[] args) {
-        // TODO code application logic here
+        System.out.println("Programming Assignment 1\n\rComputer Programming\n\rAuthor: William Cherry\n\rWensday, June 29, 2016");
     }
     
 }
+// Will, this is just a comment to show that I have contributed to your branch, Student
