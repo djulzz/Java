@@ -25,17 +25,9 @@ public class JDevApp
     {
         // TODO code application logic here
         
-        java.awt.EventQueue.invokeLater
-        (
-                new Runnable()
-                {
-                    public void run()
-                    {
-                        MainWindow frame = new MainWindow();
-                        frame.setVisible(true);
-                    }
-                }
-        );
+        AppContext appContext = new AppContext();
+        java.awt.EventQueue.invokeLater ( appContext );
+
     }
     
 }
