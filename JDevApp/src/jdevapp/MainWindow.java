@@ -195,7 +195,7 @@ public class MainWindow extends javax.swing.JFrame {
 
     private void m_jButton_Add_StudentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_m_jButton_Add_StudentActionPerformed
         // TODO add your handling code here:
-        StudentDialog dialog = new StudentDialog();
+        StudentDialog dialog = new StudentDialog( this );
 
         dialog.setVisible(true);
     }//GEN-LAST:event_m_jButton_Add_StudentActionPerformed
