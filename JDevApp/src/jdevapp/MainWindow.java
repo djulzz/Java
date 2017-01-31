@@ -9,12 +9,19 @@ import java.lang.Object;
 import javax.swing.DefaultListModel;
 import javax.swing.ListModel;
 import javax.swing.AbstractListModel;
+import java.util.Map;
+
 /**
  *
  * @author djulzz
  */
 public class MainWindow extends javax.swing.JFrame {
 
+    public void AddStudent( String First_Name )
+    {
+        m_jLabel_showing_message.setText(First_Name);
+        return;
+    }
     /**
      * Creates new form MainWindow
      */
@@ -41,6 +48,8 @@ public class MainWindow extends javax.swing.JFrame {
         m_jLabel_Cart_So_Far = new javax.swing.JLabel();
         m_jScrollPane_Cart_So_Far = new javax.swing.JScrollPane();
         m_jList_Cart_So_Far = new javax.swing.JList<>();
+        m_jButton_Place_Order = new javax.swing.JButton();
+        m_jButton_Add_Student = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(102, 102, 102));
@@ -78,6 +87,20 @@ public class MainWindow extends javax.swing.JFrame {
         m_jList_Cart_So_Far.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
         m_jScrollPane_Cart_So_Far.setViewportView(m_jList_Cart_So_Far);
 
+        m_jButton_Place_Order.setText("Place Order");
+        m_jButton_Place_Order.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                m_jButton_Place_OrderActionPerformed(evt);
+            }
+        });
+
+        m_jButton_Add_Student.setText("Add Student");
+        m_jButton_Add_Student.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                m_jButton_Add_StudentActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -89,7 +112,7 @@ public class MainWindow extends javax.swing.JFrame {
                         .addComponent(m_jLabel_Bags_to_Choose)
                         .addGap(68, 68, 68)
                         .addComponent(m_jLabel_Number_Bag_Selection)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 521, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 185, Short.MAX_VALUE)
                         .addComponent(m_jLabel_showing_message))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -99,7 +122,14 @@ public class MainWindow extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(m_jSpinner_Bag_Quantity, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(m_jLabel_Cart_So_Far)
-                            .addComponent(m_jScrollPane_Cart_So_Far, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                            .addComponent(m_jScrollPane_Cart_So_Far, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(96, 96, 96)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(m_jButton_Add_Student)
+                            .addComponent(m_jButton_Place_Order))
+                        .addContainerGap())))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -109,21 +139,24 @@ public class MainWindow extends javax.swing.JFrame {
                     .addComponent(m_jLabel_Bags_to_Choose)
                     .addComponent(m_jLabel_Number_Bag_Selection))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(m_jScrollPane_Main_UI, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(m_jButton_Add_To_Cart)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(m_jButton_Add_To_Cart))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(m_jSpinner_Bag_Quantity, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 7, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(m_jLabel_showing_message)
                         .addGap(18, 18, 18)
                         .addComponent(m_jLabel_Cart_So_Far)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(m_jScrollPane_Cart_So_Far, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(241, 241, 241))))
+                        .addGap(22, 22, 22)))
+                .addComponent(m_jButton_Place_Order)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(m_jButton_Add_Student)
+                .addGap(78, 78, 78))
         );
 
         m_jLabel_showing_message.getAccessibleContext().setAccessibleName("m_label_bag_selected");
@@ -156,13 +189,26 @@ public class MainWindow extends javax.swing.JFrame {
         m_jList_Cart_So_Far.setModel(mdl);
     }//GEN-LAST:event_m_jButton_Add_To_CartActionPerformed
 
+    private void m_jButton_Place_OrderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_m_jButton_Place_OrderActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_m_jButton_Place_OrderActionPerformed
+
+    private void m_jButton_Add_StudentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_m_jButton_Add_StudentActionPerformed
+        // TODO add your handling code here:
+        StudentDialog dialog = new StudentDialog();
+
+        dialog.setVisible(true);
+    }//GEN-LAST:event_m_jButton_Add_StudentActionPerformed
+
     /**
      * @param args the command line arguments
      */
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton m_jButton_Add_Student;
     private javax.swing.JButton m_jButton_Add_To_Cart;
+    private javax.swing.JButton m_jButton_Place_Order;
     private javax.swing.JLabel m_jLabel_Bags_to_Choose;
     private javax.swing.JLabel m_jLabel_Cart_So_Far;
     private javax.swing.JLabel m_jLabel_Number_Bag_Selection;
